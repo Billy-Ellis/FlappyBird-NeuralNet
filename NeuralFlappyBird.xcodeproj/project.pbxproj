@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F0129194219A2D1000D56AB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0129193219A2D1000D56AB4 /* AppDelegate.m */; };
+		F0129197219A2D1000D56AB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0129196219A2D1000D56AB4 /* ViewController.m */; };
+		F012919A219A2D1000D56AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0129198219A2D1000D56AB4 /* Main.storyboard */; };
+		F012919C219A2D1100D56AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F012919B219A2D1100D56AB4 /* Assets.xcassets */; };
+		F012919F219A2D1100D56AB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F012919D219A2D1100D56AB4 /* LaunchScreen.storyboard */; };
+		F01291A2219A2D1100D56AB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F01291A1219A2D1100D56AB4 /* main.m */; };
+		F01291AC219A2D1200D56AB4 /* NeuralFlappyBirdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F01291AB219A2D1200D56AB4 /* NeuralFlappyBirdTests.m */; };
+		F01291B7219A2D1200D56AB4 /* NeuralFlappyBirdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F01291B6219A2D1200D56AB4 /* NeuralFlappyBirdUITests.m */; };
+		F01291C6219AEACD00D56AB4 /* NeuralNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F01291C5219AEACD00D56AB4 /* NeuralNetwork.m */; };
+		F01291CF219B7E9700D56AB4 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F01291CE219B7E9700D56AB4 /* Player.m */; };
+		F06C1EDA219E045000F65C02 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = F06C1ED9219E045000F65C02 /* circle.png */; };
+		F08BC1AA222BDA0400C2FC43 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = F08BC1A9222BDA0400C2FC43 /* bird.png */; };
+		F08BC1B2222BDEB600C2FC43 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F08BC1B1222BDEB600C2FC43 /* background.png */; };
+		F08BC1B5222D917D00C2FC43 /* upperpipe.png in Resources */ = {isa = PBXBuildFile; fileRef = F08BC1B3222D917D00C2FC43 /* upperpipe.png */; };
+		F08BC1B6222D917D00C2FC43 /* lowerpipe.png in Resources */ = {isa = PBXBuildFile; fileRef = F08BC1B4222D917D00C2FC43 /* lowerpipe.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F01291A8219A2D1200D56AB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0129187219A2D1000D56AB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F012918E219A2D1000D56AB4;
+			remoteInfo = NeuralFlappyBird;
+		};
+		F01291B3219A2D1200D56AB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0129187219A2D1000D56AB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F012918E219A2D1000D56AB4;
+			remoteInfo = NeuralFlappyBird;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F012918F219A2D1000D56AB4 /* NeuralFlappyBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuralFlappyBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0129192219A2D1000D56AB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F0129193219A2D1000D56AB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F0129195219A2D1000D56AB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F0129196219A2D1000D56AB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F0129199219A2D1000D56AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F012919B219A2D1100D56AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F012919E219A2D1100D56AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F01291A0219A2D1100D56AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01291A1219A2D1100D56AB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F01291A7219A2D1200D56AB4 /* NeuralFlappyBirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralFlappyBirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01291AB219A2D1200D56AB4 /* NeuralFlappyBirdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeuralFlappyBirdTests.m; sourceTree = "<group>"; };
+		F01291AD219A2D1200D56AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01291B2219A2D1200D56AB4 /* NeuralFlappyBirdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralFlappyBirdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01291B6219A2D1200D56AB4 /* NeuralFlappyBirdUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeuralFlappyBirdUITests.m; sourceTree = "<group>"; };
+		F01291B8219A2D1200D56AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01291C4219AEACD00D56AB4 /* NeuralNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeuralNetwork.h; sourceTree = "<group>"; };
+		F01291C5219AEACD00D56AB4 /* NeuralNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeuralNetwork.m; sourceTree = "<group>"; };
+		F01291CD219B7E9700D56AB4 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F01291CE219B7E9700D56AB4 /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		F06C1ED9219E045000F65C02 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		F08BC1A9222BDA0400C2FC43 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
+		F08BC1B1222BDEB600C2FC43 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		F08BC1B3222D917D00C2FC43 /* upperpipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upperpipe.png; sourceTree = "<group>"; };
+		F08BC1B4222D917D00C2FC43 /* lowerpipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lowerpipe.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F012918C219A2D1000D56AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01291A4219A2D1200D56AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01291AF219A2D1200D56AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0129186219A2D1000D56AB4 = {
+			isa = PBXGroup;
+			children = (
+				F0129191219A2D1000D56AB4 /* NeuralFlappyBird */,
+				F01291AA219A2D1200D56AB4 /* NeuralFlappyBirdTests */,
+				F01291B5219A2D1200D56AB4 /* NeuralFlappyBirdUITests */,
+				F0129190219A2D1000D56AB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F0129190219A2D1000D56AB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F012918F219A2D1000D56AB4 /* NeuralFlappyBird.app */,
+				F01291A7219A2D1200D56AB4 /* NeuralFlappyBirdTests.xctest */,
+				F01291B2219A2D1200D56AB4 /* NeuralFlappyBirdUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0129191219A2D1000D56AB4 /* NeuralFlappyBird */ = {
+			isa = PBXGroup;
+			children = (
+				F0129192219A2D1000D56AB4 /* AppDelegate.h */,
+				F0129193219A2D1000D56AB4 /* AppDelegate.m */,
+				F0129195219A2D1000D56AB4 /* ViewController.h */,
+				F0129196219A2D1000D56AB4 /* ViewController.m */,
+				F01291C4219AEACD00D56AB4 /* NeuralNetwork.h */,
+				F01291C5219AEACD00D56AB4 /* NeuralNetwork.m */,
+				F01291CD219B7E9700D56AB4 /* Player.h */,
+				F01291CE219B7E9700D56AB4 /* Player.m */,
+				F0129198219A2D1000D56AB4 /* Main.storyboard */,
+				F012919B219A2D1100D56AB4 /* Assets.xcassets */,
+				F012919D219A2D1100D56AB4 /* LaunchScreen.storyboard */,
+				F01291A0219A2D1100D56AB4 /* Info.plist */,
+				F01291A1219A2D1100D56AB4 /* main.m */,
+				F06C1ED9219E045000F65C02 /* circle.png */,
+				F08BC1B1222BDEB600C2FC43 /* background.png */,
+				F08BC1A9222BDA0400C2FC43 /* bird.png */,
+				F08BC1B4222D917D00C2FC43 /* lowerpipe.png */,
+				F08BC1B3222D917D00C2FC43 /* upperpipe.png */,
+			);
+			path = NeuralFlappyBird;
+			sourceTree = "<group>";
+		};
+		F01291AA219A2D1200D56AB4 /* NeuralFlappyBirdTests */ = {
+			isa = PBXGroup;
+			children = (
+				F01291AB219A2D1200D56AB4 /* NeuralFlappyBirdTests.m */,
+				F01291AD219A2D1200D56AB4 /* Info.plist */,
+			);
+			path = NeuralFlappyBirdTests;
+			sourceTree = "<group>";
+		};
+		F01291B5219A2D1200D56AB4 /* NeuralFlappyBirdUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F01291B6219A2D1200D56AB4 /* NeuralFlappyBirdUITests.m */,
+				F01291B8219A2D1200D56AB4 /* Info.plist */,
+			);
+			path = NeuralFlappyBirdUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F012918E219A2D1000D56AB4 /* NeuralFlappyBird */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F01291BB219A2D1200D56AB4 /* Build configuration list for PBXNativeTarget "NeuralFlappyBird" */;
+			buildPhases = (
+				F012918B219A2D1000D56AB4 /* Sources */,
+				F012918C219A2D1000D56AB4 /* Frameworks */,
+				F012918D219A2D1000D56AB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeuralFlappyBird;
+			productName = NeuralFlappyBird;
+			productReference = F012918F219A2D1000D56AB4 /* NeuralFlappyBird.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F01291A6219A2D1200D56AB4 /* NeuralFlappyBirdTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F01291BE219A2D1200D56AB4 /* Build configuration list for PBXNativeTarget "NeuralFlappyBirdTests" */;
+			buildPhases = (
+				F01291A3219A2D1200D56AB4 /* Sources */,
+				F01291A4219A2D1200D56AB4 /* Frameworks */,
+				F01291A5219A2D1200D56AB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F01291A9219A2D1200D56AB4 /* PBXTargetDependency */,
+			);
+			name = NeuralFlappyBirdTests;
+			productName = NeuralFlappyBirdTests;
+			productReference = F01291A7219A2D1200D56AB4 /* NeuralFlappyBirdTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F01291B1219A2D1200D56AB4 /* NeuralFlappyBirdUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F01291C1219A2D1200D56AB4 /* Build configuration list for PBXNativeTarget "NeuralFlappyBirdUITests" */;
+			buildPhases = (
+				F01291AE219A2D1200D56AB4 /* Sources */,
+				F01291AF219A2D1200D56AB4 /* Frameworks */,
+				F01291B0219A2D1200D56AB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F01291B4219A2D1200D56AB4 /* PBXTargetDependency */,
+			);
+			name = NeuralFlappyBirdUITests;
+			productName = NeuralFlappyBirdUITests;
+			productReference = F01291B2219A2D1200D56AB4 /* NeuralFlappyBirdUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0129187219A2D1000D56AB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Billy Ellis";
+				TargetAttributes = {
+					F012918E219A2D1000D56AB4 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F01291A6219A2D1200D56AB4 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F012918E219A2D1000D56AB4;
+					};
+					F01291B1219A2D1200D56AB4 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F012918E219A2D1000D56AB4;
+					};
+				};
+			};
+			buildConfigurationList = F012918A219A2D1000D56AB4 /* Build configuration list for PBXProject "NeuralFlappyBird" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0129186219A2D1000D56AB4;
+			productRefGroup = F0129190219A2D1000D56AB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F012918E219A2D1000D56AB4 /* NeuralFlappyBird */,
+				F01291A6219A2D1200D56AB4 /* NeuralFlappyBirdTests */,
+				F01291B1219A2D1200D56AB4 /* NeuralFlappyBirdUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F012918D219A2D1000D56AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F012919F219A2D1100D56AB4 /* LaunchScreen.storyboard in Resources */,
+				F08BC1B2222BDEB600C2FC43 /* background.png in Resources */,
+				F08BC1AA222BDA0400C2FC43 /* bird.png in Resources */,
+				F012919C219A2D1100D56AB4 /* Assets.xcassets in Resources */,
+				F012919A219A2D1000D56AB4 /* Main.storyboard in Resources */,
+				F06C1EDA219E045000F65C02 /* circle.png in Resources */,
+				F08BC1B5222D917D00C2FC43 /* upperpipe.png in Resources */,
+				F08BC1B6222D917D00C2FC43 /* lowerpipe.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01291A5219A2D1200D56AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01291B0219A2D1200D56AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F012918B219A2D1000D56AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0129197219A2D1000D56AB4 /* ViewController.m in Sources */,
+				F01291A2219A2D1100D56AB4 /* main.m in Sources */,
+				F0129194219A2D1000D56AB4 /* AppDelegate.m in Sources */,
+				F01291C6219AEACD00D56AB4 /* NeuralNetwork.m in Sources */,
+				F01291CF219B7E9700D56AB4 /* Player.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01291A3219A2D1200D56AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01291AC219A2D1200D56AB4 /* NeuralFlappyBirdTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F01291AE219A2D1200D56AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01291B7219A2D1200D56AB4 /* NeuralFlappyBirdUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F01291A9219A2D1200D56AB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F012918E219A2D1000D56AB4 /* NeuralFlappyBird */;
+			targetProxy = F01291A8219A2D1200D56AB4 /* PBXContainerItemProxy */;
+		};
+		F01291B4219A2D1200D56AB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F012918E219A2D1000D56AB4 /* NeuralFlappyBird */;
+			targetProxy = F01291B3219A2D1200D56AB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0129198219A2D1000D56AB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0129199219A2D1000D56AB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F012919D219A2D1100D56AB4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F012919E219A2D1100D56AB4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F01291B9219A2D1200D56AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F01291BA219A2D1200D56AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F01291BC219A2D1200D56AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2V66PT3FLF;
+				INFOPLIST_FILE = NeuralFlappyBird/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zygosec.NeuralFlappyBird;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F01291BD219A2D1200D56AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2V66PT3FLF;
+				INFOPLIST_FILE = NeuralFlappyBird/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zygosec.NeuralFlappyBird;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F01291BF219A2D1200D56AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeuralFlappyBirdTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zygosec.NeuralFlappyBirdTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeuralFlappyBird.app/NeuralFlappyBird";
+			};
+			name = Debug;
+		};
+		F01291C0219A2D1200D56AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeuralFlappyBirdTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zygosec.NeuralFlappyBirdTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeuralFlappyBird.app/NeuralFlappyBird";
+			};
+			name = Release;
+		};
+		F01291C2219A2D1200D56AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeuralFlappyBirdUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zygosec.NeuralFlappyBirdUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NeuralFlappyBird;
+			};
+			name = Debug;
+		};
+		F01291C3219A2D1200D56AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeuralFlappyBirdUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zygosec.NeuralFlappyBirdUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NeuralFlappyBird;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F012918A219A2D1000D56AB4 /* Build configuration list for PBXProject "NeuralFlappyBird" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01291B9219A2D1200D56AB4 /* Debug */,
+				F01291BA219A2D1200D56AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F01291BB219A2D1200D56AB4 /* Build configuration list for PBXNativeTarget "NeuralFlappyBird" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01291BC219A2D1200D56AB4 /* Debug */,
+				F01291BD219A2D1200D56AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F01291BE219A2D1200D56AB4 /* Build configuration list for PBXNativeTarget "NeuralFlappyBirdTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01291BF219A2D1200D56AB4 /* Debug */,
+				F01291C0219A2D1200D56AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F01291C1219A2D1200D56AB4 /* Build configuration list for PBXNativeTarget "NeuralFlappyBirdUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F01291C2219A2D1200D56AB4 /* Debug */,
+				F01291C3219A2D1200D56AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0129187219A2D1000D56AB4 /* Project object */;
+}
