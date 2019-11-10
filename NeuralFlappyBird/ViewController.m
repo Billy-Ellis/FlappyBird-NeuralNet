@@ -140,19 +140,16 @@
                 [self createPlayerWithLayer1Weights:bestLayer1Weights layer2Weights:bestLayer2Weights];
             }
         }
-        
         // update the label showing the number of birds that will be spawned
         numberOfBirdsLabel.text = [NSString stringWithFormat:@"%d",numberOfBirds];
         [self spawnPipes];
         
         // this prevents what i assume was a race condition, causing the next round of the game to not work
         usleep(50000);
-    
     }
 }
 
 -(void)fallBirds{
-    
     // update the position of the birds, making them fall by gravity
     for (int i = 0; i < [playerArray count]; i++){
         [playerArray[i] setFrame:CGRectMake(40, [playerArray[i] frame].origin.y+playerFlight, 50, 50)];
@@ -161,7 +158,6 @@
 }
 
 -(void)createPlayerWithLayer1Weights:(NSMutableArray*)l1weights layer2Weights:(NSMutableArray*)l2weights{
-    
     // create a new instance of a player
     Player *p = [[Player alloc]initWithFrame:CGRectMake(40, 250, 50, 50)];
     //set the background color to clearColor so that we can use an image
@@ -178,13 +174,10 @@
 }
 
 -(void)createPlayer{
-    
     // create a new instance of a player
     Player *p = [[Player alloc]initWithFrame:CGRectMake(40, 250, 50, 50)];
-    
     // set the background color to clearColor so that we can use an image
     p.backgroundColor = [UIColor clearColor];
-    
     // add the player to the game view
     [gameView addSubview:p];
     // insert the new player into the player array
@@ -194,19 +187,15 @@
 }
 
 -(void)spawnPipes{
-    
     // generate upper and lower pipes with random heights
     int upperPipeLength = arc4random() % 635;
     int lowerPipeLength = 834 - upperPipeLength - 150;
-    
     // set the frames on the pipe objects
     upperPipe.frame = CGRectMake(520, 0, 70, upperPipeLength);
     lowerPipe.frame = CGRectMake(520, gameView.frame.size.height-lowerPipeLength, 70, lowerPipeLength);
-    
 }
 
 -(void)pipesMove{
-    
     // update all of the labels representing the nodes in the neural network with the values of the nodes
     inputNodeLabel1.text = [NSString stringWithFormat:@"%f",[[[[[playerArray objectAtIndex:0]viewBrain]getInputNodes]objectAtIndex:0]floatValue]];
     inputNodeLabel2.text = [NSString stringWithFormat:@"%f",[[[[[playerArray objectAtIndex:0]viewBrain]getInputNodes]objectAtIndex:1]floatValue]];
@@ -229,7 +218,6 @@
     for (int i = 0; i < [playerArray count]; i++){
         
         Player *p = [playerArray objectAtIndex:i];
-        
         // constantly be saving the 'best' weights
         bestLayer1Weights = [p.brain getLayer1Weights];
         bestLayer2Weights = [p.brain getLayer2Weights];
@@ -260,9 +248,7 @@
                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                     [defaults setObject:save_l1 forKey:@"save_l1"];
                     [defaults setObject:save_l2 forKey:@"save_l2"];
-                    
                     [defaults synchronize];
-                    
                 }
                 //before restarting, check if the highscore was beaten, and if so, set the current score as the new highscore
                 if (score > highscore){

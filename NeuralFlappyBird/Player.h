@@ -14,7 +14,6 @@
 
 {
     float playerFlight;
-    
     // pipe information
     CGRect upperPipe;
     CGRect lowerPipe;

@@ -12,16 +12,13 @@
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
-
     [encoder encodeObject:layer_one_weights forKey:@"layer_one_weights"];
     [encoder encodeObject:layer_two_weights forKey:@"layer_two_weights"];
-    
 }
 
 -(id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
-      
         layer_one_weights = [decoder decodeObjectForKey:@"layer_one_weights"];
         layer_two_weights = [decoder decodeObjectForKey:@"layer_two_weights"];
     }
@@ -53,15 +50,10 @@
 }
 
 -(void)setLayer1Weights:(NSMutableArray*)weights{
-    
-    
     [layer_one_weights removeAllObjects];
     
     for (int i = 0; i < (number_input_nodes*number_middle_nodes); i++){
-        
         int rand = arc4random() % 600;
-       
-        //NSLog(@"%d",rand);
         if (rand == 1){
             float r = arc4random() % 20;
             float weight = (float)((r / 10)- 1);
@@ -69,20 +61,14 @@
         }else{
             [layer_one_weights insertObject:[weights objectAtIndex:i] atIndex:i];
         }
-        
     }
-    
 }
 
 -(void)setLayer2Weights:(NSMutableArray*)weights{
-    
     [layer_two_weights removeAllObjects];
     
     for (int i = 0; i < (number_middle_nodes*number_output_nodes); i++){
-        
         int rand = arc4random() % 600;
-       
-       // NSLog(@"%d",rand);
         if (rand == 1){
             float r = arc4random() % 20;
             float weight = (float)((r / 10)- 1);
@@ -90,16 +76,13 @@
         }else{
             [layer_two_weights insertObject:[weights objectAtIndex:i] atIndex:i];
         }
-        
     }
-    
 }
 
 -(id)initWithLayer1:(int)l1 layer2:(int)l2 layer3:(int)l3{
     self = [super init];
     
     if (self){
-        
         number_input_nodes = l1;
         number_middle_nodes = l2;
         number_output_nodes = l3;
@@ -117,57 +100,43 @@
             float weight = (float)((r / 10)- 1);
             [layer_one_weights insertObject:[NSNumber numberWithFloat:weight] atIndex:i];
         }
-        
         // layer two-three weights
         for (int i = 0; i < (number_middle_nodes*number_output_nodes); i++){
             float r = arc4random() % 20;
             float weight = (float)((r / 10)- 1);
             [layer_two_weights insertObject:[NSNumber numberWithFloat:weight] atIndex:i];
         }
-        
     }
     return self;
 }
 
 -(void)forwardPropogate{
     [self calculateMiddleLayer];
-    //NSLog(@"%@",middle_nodes);
     [self activateMiddleLayer];
-   // NSLog(@"%@",middle_nodes);
     [self calculateOutputLayer];
-   // NSLog(@"%@",output_nodes);
     [self activateOutputLayer];
-  //  NSLog(@"%@",output_nodes);
 }
 
 -(void)calculateMiddleLayer{
-    
     // set middle nodes back to 0
     for (int i = 0; i < number_middle_nodes; i++){
         [middle_nodes insertObject:[NSNumber numberWithFloat:0] atIndex:i];
     }
-    
     // multiply weights & nodes
     int c = 0;
     for (int a = 0; a < number_middle_nodes; a++){
         for (int b = 0; b < number_input_nodes; b++){
-            
             [middle_nodes insertObject:[NSNumber numberWithFloat:[[middle_nodes objectAtIndex:a]floatValue] + ([[input_nodes objectAtIndex:b]floatValue] * [[layer_one_weights objectAtIndex:c]floatValue])] atIndex:a];
             c++;
-            
         }
     }
-    
-  //  NSLog(@"middle layer %@",middle_nodes);
 }
 
 -(void)calculateOutputLayer{
-    
     // set output nodes back to 0
     for (int i = 0; i < number_output_nodes; i++){
         [output_nodes insertObject:[NSNumber numberWithFloat:0] atIndex:i];
     }
-    
     // multiply weights & nodes
     int c = 0;
     for (int a = 0; a < number_output_nodes; a++){
@@ -175,11 +144,8 @@
             
             [output_nodes insertObject:[NSNumber numberWithFloat:[[output_nodes objectAtIndex:a]floatValue] + ([[middle_nodes objectAtIndex:b]floatValue] * [[layer_two_weights objectAtIndex:c]floatValue])] atIndex:a];
             c++;
-            
         }
     }
-    
-   // NSLog(@"output layer %@",output_nodes);
 }
 
 -(void)activateMiddleLayer{
@@ -228,10 +194,7 @@
     float exp_value;
     float return_value;
     
-    /*** Exponential calculation ***/
     exp_value = exp((double) -x);
-    
-    /*** Final sigmoid value ***/
     return_value = 1 / (1 + exp_value);
     
     return return_value;

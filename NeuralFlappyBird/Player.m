@@ -13,11 +13,8 @@
 -(UIView*)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.brain = [[NeuralNetwork alloc]initWithLayer1:4 layer2:6 layer3:1];
-        
         playerFlight = 1;
-        
         gravityTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(gravity) userInfo:nil repeats:YES];
         
         UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -31,7 +28,6 @@
     
     [self.brain setLayer1Weights:l1];
     [self.brain setLayer2Weights:l2];
-    
 }
 
 -(void)loadPlayerBrainWithLayer1Weights:(NSMutableArray*)l1 layer2Weights:(NSMutableArray*)l2{
@@ -41,7 +37,6 @@
 }
 
 -(void)gravity{
-    
     // update inputs to the neural network
     NSMutableArray *inputs = [NSMutableArray arrayWithCapacity:4];
     inputs[0] = [NSNumber numberWithFloat:self.frame.origin.y / 834];
@@ -50,25 +45,20 @@
     inputs[3] = [NSNumber numberWithFloat:lowerPipe.size.height / 834];
     
     [self.brain updateInputNodes:inputs];
-    
     [self.brain forwardPropogate];
     
     if ([[[self.brain getOutputNodes]objectAtIndex:0]floatValue] > 0.5){
         [self jump];
     }
 
-  //  NSLog(@"%@",[brain getOutputNodes]);
-    
     [self.brain updateInputNodes:inputs];
     
     playerFlight = playerFlight + 0.2;
     [self setFrame:CGRectMake(40, self.frame.origin.y+playerFlight, 50, 50)];
-   // NSLog(@"player is falling and playerFlight is %f",playerFlight);
-    
+   
     if (self.frame.origin.y < 0){
         [self die];
     }
-    
 }
 
 -(void)jump{
@@ -92,12 +82,5 @@
 -(NeuralNetwork*)viewBrain{
     return self.brain;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
