@@ -11,14 +11,12 @@
 @implementation NeuralNetwork
 
 -(void)encodeWithCoder:(NSCoder *)encoder {
-    //Encode properties, other class variables, etc
     [encoder encodeObject:layer_one_weights forKey:@"layer_one_weights"];
     [encoder encodeObject:layer_two_weights forKey:@"layer_two_weights"];
 }
 
 -(id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
-        //decode properties, other class vars
         layer_one_weights = [decoder decodeObjectForKey:@"layer_one_weights"];
         layer_two_weights = [decoder decodeObjectForKey:@"layer_two_weights"];
     }
@@ -141,7 +139,6 @@
     int c = 0;
     for (int a = 0; a < number_output_nodes; a++){
         for (int b = 0; b < number_middle_nodes; b++){
-            
             [output_nodes insertObject:[NSNumber numberWithFloat:[[output_nodes objectAtIndex:a]floatValue] + ([[middle_nodes objectAtIndex:b]floatValue] * [[layer_two_weights objectAtIndex:c]floatValue])] atIndex:a];
             c++;
         }
@@ -149,14 +146,12 @@
 }
 
 -(void)activateMiddleLayer{
-    
     for (int i = 0; i < number_middle_nodes; i++){
         [middle_nodes replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:[self sigmoid:[[middle_nodes objectAtIndex:i]floatValue]]]];
     }
 }
 
 -(void)activateOutputLayer{
-    
     for (int i = 0; i < number_output_nodes; i++){
         [output_nodes replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:[self sigmoid:[[output_nodes objectAtIndex:i]floatValue]]]];
     }
@@ -164,7 +159,6 @@
 
 
 -(void)updateInputNodes:(NSMutableArray*)inputs{
-    
     for (int i = 0; i < [inputs count]; i++){
         [input_nodes insertObject:[inputs objectAtIndex:i] atIndex:i];
     }

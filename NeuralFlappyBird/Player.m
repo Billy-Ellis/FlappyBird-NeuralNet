@@ -25,13 +25,11 @@
 }
 
 -(void)updatePlayerBrainWithLayer1Weights:(NSMutableArray*)l1 layer2Weights:(NSMutableArray*)l2{
-    
     [self.brain setLayer1Weights:l1];
     [self.brain setLayer2Weights:l2];
 }
 
 -(void)loadPlayerBrainWithLayer1Weights:(NSMutableArray*)l1 layer2Weights:(NSMutableArray*)l2{
-    
     [self.brain loadLayer1Weights:l1];
     [self.brain loadLayer2Weights:l2];
 }
@@ -66,7 +64,7 @@
 }
 
 -(void)die{
-    // fix the memory leak
+    // a memory leak was fixed here
     [self.brain deactivate];
     [gravityTimer invalidate];
     gravityTimer = nil;

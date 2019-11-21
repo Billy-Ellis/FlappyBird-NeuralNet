@@ -24,64 +24,45 @@
     loadedLayer1Weights = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject1];
     loadedLayer2Weights = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject2];
     
-    // set isLoadedBird to true/YES
     isLoadedBird = YES;
-    // invalidate the pipe timer
     [pipeTimer invalidate];
     pipeTimer = nil;
-    
-    // call the restart method
     [self restart];
 }
 
 - (IBAction)startButtonPressed:(id)sender {
-    
-    // call the restart method to set up the scene and start the timer for the movement of the pipes
     [self restart];
     pipeTimer = [NSTimer scheduledTimerWithTimeInterval:0.005 target:self selector:@selector(pipesMove) userInfo:nil repeats:YES];
 }
 
 - (IBAction)birdsToSpawnSliderChanged:(id)sender {
-    
-    // update the number of birds to spawn as well as the label displaying this information
     numberOfBirdsToSpawn = birdsToSpawnSlider.value * 1000;
     birdsToSpawnLabel.text = [NSString stringWithFormat:@"spawn %d birds per generation",numberOfBirdsToSpawn];
 }
 
 -(void)restart{
-    
     // check if a bird is being loaded
     if (isLoadedBird == YES){
-        
         // if so, remove all currently playing birds
         for (int i = 0; i < [playerArray count]; i++){
             [[playerArray objectAtIndex:i]die];
             [playerArray removeObjectAtIndex:i];
             deadPlayers++;
         }
-        
-        // set the number of birds to spawn to 1
-        numberOfBirdsToSpawn = 1;
-        
-        highscoreLabel.text = [NSString stringWithFormat:@"Highscore: %d",highscore];
-        generationLabel.text = [NSString stringWithFormat:@"Loaded bird!"];
-        
-        score = 0;
-        scoreLabel.text = @"0";
-        
-        // set the playerFlight to 1 and playerCount to 0
         playerFlight = 1;
         playerCount = 0;
+        numberOfBirds = 1;
+        deadPlayers = 0;
+        numberOfBirdsToSpawn = 1;
+        score = 0;
+        
+        scoreLabel.text = @"0";
+        highscoreLabel.text = [NSString stringWithFormat:@"Highscore: %d",highscore];
+        generationLabel.text = [NSString stringWithFormat:@"Loaded bird!"];
         
         // clear the current playerArray
         [playerArray removeAllObjects];
         playerArray = [[NSMutableArray alloc]init];
-        
-        // set the number of birds and number of dead birds to 0
-        numberOfBirds = 0;
-        deadPlayers = 0;
-        
-        numberOfBirds++;
         
         // create a single instance of a Player
         Player *p = [[Player alloc]initWithFrame:CGRectMake(40, 250, 50, 50)];
@@ -97,24 +78,19 @@
         // update the label showing the number of birds that will be spawned
         numberOfBirdsLabel.text = [NSString stringWithFormat:@"%d",numberOfBirds];
         [self spawnPipes];
+        // fixes some race condition, the cause of which i didn't bother to find, but this works as a fix ;)
         usleep(50000);
         
         pipeTimer = [NSTimer scheduledTimerWithTimeInterval:0.005 target:self selector:@selector(pipesMove) userInfo:nil repeats:YES];
         
     }else{
-    
         // if not, the birds need to be trained, so continue as normal
         highscoreLabel.text = [NSString stringWithFormat:@"Highscore: %d",highscore];
-        
-        // increment the generation number and the corresponding label
         generationNumber++;
         generationLabel.text = [NSString stringWithFormat:@"Generation: %d",generationNumber];
         
-        // set the score and the score label to 0
         score = 0;
         scoreLabel.text = @"0";
-        
-        // set the playerFlight to 1 and playerCount to 0
         playerFlight = 1;
         playerCount = 0;
         
@@ -122,7 +98,6 @@
         [playerArray removeAllObjects];
         playerArray = [[NSMutableArray alloc]init];
         
-        // set the number of birds and number of dead birds to 0
         numberOfBirds = 0;
         deadPlayers = 0;
         
@@ -143,8 +118,7 @@
         // update the label showing the number of birds that will be spawned
         numberOfBirdsLabel.text = [NSString stringWithFormat:@"%d",numberOfBirds];
         [self spawnPipes];
-        
-        // this prevents what i assume was a race condition, causing the next round of the game to not work
+        // fixes some race condition, the cause of which i didn't bother to find, but this works as a fix ;)
         usleep(50000);
     }
 }
@@ -160,29 +134,21 @@
 -(void)createPlayerWithLayer1Weights:(NSMutableArray*)l1weights layer2Weights:(NSMutableArray*)l2weights{
     // create a new instance of a player
     Player *p = [[Player alloc]initWithFrame:CGRectMake(40, 250, 50, 50)];
-    //set the background color to clearColor so that we can use an image
     p.backgroundColor = [UIColor clearColor];
-    
-    // initialise the birds' brain with existing weights
     [p updatePlayerBrainWithLayer1Weights:l1weights layer2Weights:l2weights];
-    // insert the new player into the player array
-    [playerArray insertObject:p atIndex:playerCount];
-    // add the player to the game view
     [gameView addSubview:p];
-    // increment the player count
+    
+    [playerArray insertObject:p atIndex:playerCount];
     playerCount++;
 }
 
 -(void)createPlayer{
     // create a new instance of a player
     Player *p = [[Player alloc]initWithFrame:CGRectMake(40, 250, 50, 50)];
-    // set the background color to clearColor so that we can use an image
     p.backgroundColor = [UIColor clearColor];
-    // add the player to the game view
     [gameView addSubview:p];
-    // insert the new player into the player array
+
     [playerArray insertObject:p atIndex:playerCount];
-    // increment the player count
     playerCount++;
 }
 
@@ -197,6 +163,7 @@
 
 -(void)pipesMove{
     // update all of the labels representing the nodes in the neural network with the values of the nodes
+    // this could probably be heavily refactored/improved lol
     inputNodeLabel1.text = [NSString stringWithFormat:@"%f",[[[[[playerArray objectAtIndex:0]viewBrain]getInputNodes]objectAtIndex:0]floatValue]];
     inputNodeLabel2.text = [NSString stringWithFormat:@"%f",[[[[[playerArray objectAtIndex:0]viewBrain]getInputNodes]objectAtIndex:1]floatValue]];
     inputNodeLabel3.text = [NSString stringWithFormat:@"%f",[[[[[playerArray objectAtIndex:0]viewBrain]getInputNodes]objectAtIndex:2]floatValue]];
@@ -216,7 +183,6 @@
     
     // iterate through all of the players
     for (int i = 0; i < [playerArray count]; i++){
-        
         Player *p = [playerArray objectAtIndex:i];
         // constantly be saving the 'best' weights
         bestLayer1Weights = [p.brain getLayer1Weights];
@@ -237,7 +203,6 @@
             
             // when all players are dead, restart
             if (!(numberOfBirds - deadPlayers)){
-            
                 // if this isn't a loaded bird...
                 if (isLoadedBird == NO){
                     NSLog(@"Saving bird...");
@@ -250,7 +215,7 @@
                     [defaults setObject:save_l2 forKey:@"save_l2"];
                     [defaults synchronize];
                 }
-                //before restarting, check if the highscore was beaten, and if so, set the current score as the new highscore
+                // before restarting, check if the highscore was beaten, and if so, set the current score as the new highscore
                 if (score > highscore){
                     highscore = score;
                 }
@@ -272,16 +237,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // set the default values of the labels on the game view
     scoreLabel.text = @"0";
     numberOfBirdsLabel.text = @"100";
-    
-    // set the highscore and generation number to 0
     generationNumber = 0;
     highscore = 0;
-    
-    // set isLoadedBird to NO by default
     isLoadedBird = NO;
 }
 
